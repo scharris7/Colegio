@@ -45,18 +45,17 @@ public class Colegio {
         contEst++;
     }
 
+    // Reporte completo de estudiantes
     public void reporteEstudiantes() {
         if (contEst == 0) {
             JOptionPane.showMessageDialog(null, "No hay estudiantes registrados.");
             return;
         }
 
-        String rep = "=== LISTA DE ESTUDIANTES ===\n";
+        String rep = "=== LISTA DE ESTUDIANTES ===\n\n";
         for (int i = 0; i < contEst; i++) {
-            rep += estudiantes[i].nombre + " - Grado: " + estudiantes[i].grado +
-                   " - Promedio: " + estudiantes[i].promedio + "\n";
+            rep += estudiantes[i].mostrar() + "\n";
         }
-
         JOptionPane.showMessageDialog(null, rep);
     }
 
@@ -76,16 +75,15 @@ public class Colegio {
             }
         }
 
-        String rep = "=== LISTA DE PROFESORES ===\n";
+        String rep = "=== LISTA DE PROFESORES ===\n\n";
         double totalPrestaciones = 0;
 
         for (int i = 0; i < contPro; i++) {
-            rep += profesores[i].nombre + " - Área: " + profesores[i].area +
-                   " - Salario Total: " + profesores[i].calcularPago() + "\n";
+            rep += profesores[i].mostrar() + "\n";
             totalPrestaciones += profesores[i].calcularPrestaciones();
         }
 
-        rep += "\nTotal Prestaciones Sociales: " + totalPrestaciones;
+        rep += "\nTOTAL PRESTACIONES SOCIALES: " + totalPrestaciones;
         JOptionPane.showMessageDialog(null, rep);
     }
 }
