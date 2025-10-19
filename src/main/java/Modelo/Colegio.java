@@ -45,8 +45,6 @@ public class Colegio {
         contEst++;
     }
 
-    // --- MÉTODOS SIMPLIFICADOS ---
-
     public void reporteEstudiantes() {
         if (contEst == 0) {
             JOptionPane.showMessageDialog(null, "No hay estudiantes registrados.");
@@ -68,7 +66,6 @@ public class Colegio {
             return;
         }
 
-        // Ordenar por salario total (de menor a mayor)
         for (int i = 0; i < contPro - 1; i++) {
             for (int j = 0; j < contPro - 1 - i; j++) {
                 if (profesores[j].calcularPago() > profesores[j + 1].calcularPago()) {
@@ -79,7 +76,7 @@ public class Colegio {
             }
         }
 
-        String rep = "=== LISTA DE PROFESORES (por salario) ===\n";
+        String rep = "=== LISTA DE PROFESORES ===\n";
         double totalPrestaciones = 0;
 
         for (int i = 0; i < contPro; i++) {
