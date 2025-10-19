@@ -30,6 +30,18 @@ public class Colegio {
         int horas = Integer.parseInt(JOptionPane.showInputDialog("Horas dictadas en el mes:"));
 
         profesores[contPro] = new Profesor(nombre, dir, tel, fecha, ced, area, salHora, horas);
+
+        int op = Integer.parseInt(JOptionPane.showInputDialog(
+            "¿Desea agregar un bono extra para este profesor?\n1. Sí\n2. No"));
+
+        if (op == 1) {
+            double bono = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el valor del bono:"));
+            double pagoConBono = profesores[contPro].calcularPago(bono); // aquí se usa la sobrecarga
+            JOptionPane.showMessageDialog(null, "El salario total con bono es: " + pagoConBono);
+        } else {
+            JOptionPane.showMessageDialog(null, "El salario total sin bono es: " + profesores[contPro].calcularPago());
+        }
+
         contPro++;
     }
 
@@ -45,7 +57,6 @@ public class Colegio {
         contEst++;
     }
 
-    // Reporte completo de estudiantes
     public void reporteEstudiantes() {
         if (contEst == 0) {
             JOptionPane.showMessageDialog(null, "No hay estudiantes registrados.");
